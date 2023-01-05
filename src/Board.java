@@ -1,5 +1,6 @@
 import java.util.Arrays;
 import java.util.Random;
+import java.util.Stack;
 
 public class Board {
     final private int boardSize = 8;
@@ -28,16 +29,22 @@ public class Board {
         return fitness;
     }
 
-    private void boardToString(){ //used to print the board in terminal
+    private void boardToString(){ //used to print the board
+        Stack<String> stack = new Stack<>();
         for(int i = 0; i < board.length; i++){
+            String output = "";
             for(int j = 0; j < board.length; j++){
-                if(board[i] == j)
-                    System.out.print("[X]");
+                if(board[j] == i)
+                    output += "[X]";
                 else
-                    System.out.print("[ ]");
+                    output += "[ ]";
             }
-            System.out.println();
+            output += "\n";
+            stack.push(output);
         }
+
+        while(!stack.isEmpty())
+            System.out.print(stack.pop());
     }
     public static void main(String[] args) {
         Board fart = new Board();
