@@ -20,7 +20,7 @@ public class Board {
         return board;
     }
 
-    private int getFitness(){ //calculates how many queens are in the same row/column/diagonal
+    public int getFitness(){ //calculates how many queens are in the same row/column/diagonal
         for(int i = 0; i < board.length - 1; i++){
             for(int j = i + 1; j < board.length; j++){
                 if(board[i] == board[j]) //same row
@@ -49,11 +49,5 @@ public class Board {
 
         while(!stack.isEmpty())
             System.out.print(stack.pop());
-    }
-    public static void main(String[] args) {
-        Board fart = new Board();
-        System.out.println(Arrays.toString(fart.board));
-        fart.boardToString();
-        System.out.println(fart.getFitness());
     }
 }
