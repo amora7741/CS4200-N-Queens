@@ -3,7 +3,8 @@ import java.util.Random;
 
 public class SteepestHill {
     private int[] test;
-    public boolean solve(Board board){
+
+    public OutputData solve(Board board){
         int[] current = board.getBoard();
         
         while(true){
@@ -12,12 +13,8 @@ public class SteepestHill {
             if(getFitness(current) <= getFitness(test)){
                 test = current.clone();
                 Board b = new Board(test);
-                b.boardToString();
-                
-                if(getFitness(test) == 0)
-                    return true;
-                
-                return false;
+
+                return new OutputData(getFitness(test) == 0, b);
             }
 
             current = test;

@@ -2,7 +2,7 @@ import java.util.Random;
 import java.util.Stack;
 
 public class Board {
-    final private int boardSize = 8;
+    static final int boardSize = 8;
     private int fitness;
     private int[] board = new int[boardSize];
     Random randInt = new Random();
