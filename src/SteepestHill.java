@@ -6,12 +6,6 @@ public class SteepestHill {
     private int[] test;
     public boolean solve(Board board){
         test = getBestSuccessor(board.getBoard());
-        System.out.println(Arrays.toString(board.getBoard()));
-        System.out.println(board.getFitness());
-
-        System.out.println(Arrays.toString(test));
-        System.out.println(getFitness(test));
-
 
         return false;
     }
@@ -74,12 +68,5 @@ public class SteepestHill {
         }
 
         return fitness;
-    }
-
-    public static void main(String[] args) {
-        Board b = new Board();
-        SteepestHill s = new SteepestHill();
-
-        s.solve(b);
     }
 }

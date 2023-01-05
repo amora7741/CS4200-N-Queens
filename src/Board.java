@@ -13,14 +13,15 @@ public class Board {
             board[i] = randInt.nextInt(boardSize); 
         }
 
-        fitness = getFitness();
+        fitness = calcFitness();
     }
 
     public int[] getBoard(){
         return board;
     }
 
-    public int getFitness(){ //calculates how many queens are in the same row/column/diagonal
+    private int calcFitness(){ //calculates how many queens are in the same row/column/diagonal
+        fitness = 0;
         for(int i = 0; i < board.length - 1; i++){
             for(int j = i + 1; j < board.length; j++){
                 if(board[i] == board[j]) //same row
@@ -30,6 +31,10 @@ public class Board {
             }
         }
 
+        return fitness;
+    }
+
+    public int getFitness(){
         return fitness;
     }
 
