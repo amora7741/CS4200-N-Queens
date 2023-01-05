@@ -1,4 +1,3 @@
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Random;
 
@@ -12,6 +11,8 @@ public class SteepestHill {
             
             if(getFitness(current) <= getFitness(test)){
                 test = current.clone();
+                Board b = new Board(test);
+                b.boardToString();
                 
                 if(getFitness(test) == 0)
                     return true;
@@ -81,20 +82,5 @@ public class SteepestHill {
         }
 
         return fitness;
-    }
-
-
-    public static void main(String[] args) {
-        SteepestHill s = new SteepestHill();
-        double counter = 0;
-        double iterations = 1000;
-        
-        for(int i = 0; i < iterations; i++){
-            Board b = new Board();
-            if(s.solve(b))
-                counter++;
-        }
-
-        System.out.println(counter / iterations);
     }
 }
