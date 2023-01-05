@@ -5,9 +5,22 @@ import java.util.Random;
 public class SteepestHill {
     private int[] test;
     public boolean solve(Board board){
-        test = getBestSuccessor(board.getBoard());
+        int[] current = board.getBoard();
+        
+        while(true){
+            test = getBestSuccessor(current);
+            
+            if(getFitness(current) <= getFitness(test)){
+                test = current.clone();
+                
+                if(getFitness(test) == 0)
+                    return true;
+                
+                return false;
+            }
 
-        return false;
+            current = test;
+        }
     }
 
     private int[] getBestSuccessor(int[] puzzle){
@@ -68,5 +81,20 @@ public class SteepestHill {
         }
 
         return fitness;
+    }
+
+
+    public static void main(String[] args) {
+        SteepestHill s = new SteepestHill();
+        double counter = 0;
+        double iterations = 1000;
+        
+        for(int i = 0; i < iterations; i++){
+            Board b = new Board();
+            if(s.solve(b))
+                counter++;
+        }
+
+        System.out.println(counter / iterations);
     }
 }
