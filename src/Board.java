@@ -9,11 +9,15 @@ public class Board {
     Random randInt = new Random();
 
     public Board(){
-        for(int i  = 0; i < boardSize; i++){
+        for(int i = 0; i < boardSize; i++){
             board[i] = randInt.nextInt(boardSize); 
         }
 
         fitness = getFitness();
+    }
+
+    public int[] getBoard(){
+        return board;
     }
 
     private int getFitness(){ //calculates how many queens are in the same row/column/diagonal
