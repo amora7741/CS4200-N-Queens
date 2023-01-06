@@ -1,14 +1,11 @@
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Random;
 
 public class Genetic {
     static final int boardSize = Board.boardSize;
     static int popSize = 200;
-    final double mutationChance = 0.40;
+    final double mutationChance = 0.30;
 
     public OutputData solve(){
-        double generations = 0;
         Random rand = new Random();
         Population startingPopulation = new Population();
         Population newPopulation;

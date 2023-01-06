@@ -12,4 +12,8 @@ public class OutputData {
     public Board getBoard(){
         return board;
     }
+
+    public int getCost(){
+        return searchCost;
+    }
 }
