@@ -35,6 +35,7 @@ public class Genetic {
 
                 newPopulation.p.add(child);
             }
+            
             startingPopulation.setList(newPopulation.p);
         }
 
