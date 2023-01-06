@@ -23,14 +23,7 @@ public class Genetic {
 
             for(int i = 0; i < startingPopulation.p.size(); i++){
                 Board mother = startingPopulation.randomSelect();
-
-                if(mother.getFitness() == 0)
-                    return new OutputData(true, mother);
-
                 Board father = startingPopulation.randomSelect();
-
-                if(father.getFitness() == 0)
-                    return new OutputData(true, father);
 
                 Board child = reproduce(mother, father);
                 
