@@ -33,6 +33,7 @@ public class Main{
         percent1 = count / iterations;
         duration1 /= iterations;
         avgcost1 /= iterations;
+        String output1 = String.format("Percentage of Boards Solved by Steepest-Hill Search: %.0f / %.0f = %.2f%% %n", count, iterations, percent1 * 100);
         count = 0;
 
         for(int i = 0; i < iterations; i++){
@@ -57,12 +58,13 @@ public class Main{
         percent2 = count / iterations;
         duration2 /= iterations;
         avgcost2 /= iterations;
+        String output2 = String.format("%nPercentage of Boards Solved by Genetic Algorithm: %.0f / %.0f = %.2f%% %n", count, iterations, percent2 * 100);
         
-        System.out.printf("Percentage of Boards Solved by Steepest-Hill Algo: %.3f%n", percent1);
+        System.out.print(output1);
         System.out.printf("Average Search Time for Steepest Hill Search: %d ms%n", duration1);
         System.out.printf("Average Search Cost for Steepest Hill Search: %d%n", avgcost1);
 
-        System.out.printf("%nPercentage of Boards Solved by Genetic Algo: %.3f%n", percent2);
+        System.out.print(output2);
         System.out.printf("Average Search Time for Genetic Algorithm: %d ms%n", duration2);
         System.out.printf("Average Search Cost for Genetic Algorithm: %d%n", avgcost2);
     }

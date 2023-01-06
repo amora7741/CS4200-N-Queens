@@ -9,7 +9,7 @@ public class Genetic {
         Random rand = new Random();
         Population startingPopulation = new Population();
         Population newPopulation;
-        int maxIterations = 5000;
+        int maxIterations = 4000;
         int searchCost = 0;
 
         for(int i = 0; i < popSize; i++){
