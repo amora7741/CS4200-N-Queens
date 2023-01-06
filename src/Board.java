@@ -46,7 +46,7 @@ public class Board {
             String output = "";
             for(int j = 0; j < board.length; j++){
                 if(board[j] == i)
-                    output += "[X]";
+                    output += "[Q]";
                 else
                     output += "[ ]";
             }

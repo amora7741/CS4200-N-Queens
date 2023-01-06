@@ -1,12 +1,11 @@
 public class Main{
     public static void main(String[] args) {
         OutputData output;
-        SteepestHill s = new SteepestHill();
-        double count = 0, iterations = 1000;
+        Genetic s = new Genetic();
+        double count = 0, iterations = 100;
 
         for(int i = 0; i < iterations; i++){
-            Board b = new Board();
-            output = s.solve(b);
+            output = s.solve();
 
             output.getBoard().boardToString();
             System.out.println(output.getBoard().getFitness());
@@ -15,6 +14,6 @@ public class Main{
                 count++;
         }
 
-        System.out.printf("Percentage of Boards Solved: %.2f", (count / iterations));
+        System.out.printf("Percentage of Boards Solved: %.3f", (count / iterations));
     }
 }
