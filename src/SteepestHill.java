@@ -28,7 +28,6 @@ public class SteepestHill {
         HashMap<Integer, HashMap<Integer, Integer>> moves = new HashMap<>(); //store possible moves that can be made on the board
 
         for (int col = 0; col < board.length; col++) {
-            int bestMove = board[col];
             HashMap<Integer, Integer> move = new HashMap<>(); //store row values that can be placed in the current column
 
             for (int row = 0; row < board.length; row++) { //iterate through rows of the array
