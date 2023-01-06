@@ -6,15 +6,17 @@ public class SteepestHill {
 
     public OutputData solve(Board board){
         int[] current = board.getBoard();
+        int searchCost = 0;
         
         while(true){
             test = getBestSuccessor(current);
+            searchCost++;
             
             if(getFitness(current) <= getFitness(test)){
                 test = current.clone();
                 Board b = new Board(test);
 
-                return new OutputData(getFitness(test) == 0, b);
+                return new OutputData(getFitness(test) == 0, b, searchCost);
             }
 
             current = test;

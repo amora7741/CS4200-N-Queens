@@ -13,9 +13,11 @@ public class Genetic {
         Population startingPopulation = new Population();
         Population newPopulation;
         int maxIterations = 5000;
+        int searchCost = 0;
 
         for(int i = 0; i < popSize; i++){
             startingPopulation.p.add(new Board());
+            searchCost++;
         }
 
         for(int iteration = 0; iteration < maxIterations; iteration++){
@@ -31,9 +33,10 @@ public class Genetic {
                     child = mutate(child.getBoard());
 
                 if(child.getFitness() == 0)
-                    return new OutputData(true, child);
+                    return new OutputData(true, child, searchCost);
 
                 newPopulation.p.add(child);
+                searchCost++;
             }
             
             startingPopulation.setList(newPopulation.p);
@@ -41,7 +44,7 @@ public class Genetic {
 
         startingPopulation.sortbyFitness();
 
-        return new OutputData(false, startingPopulation.p.get(0));
+        return new OutputData(false, startingPopulation.p.get(0), searchCost);
     }
 
     private Board reproduce(Board x, Board y){
