@@ -4,7 +4,7 @@ import java.util.Random;
 
 public class Genetic {
     static final int boardSize = Board.boardSize;
-    static int popSize = 150;
+    static int popSize = 200;
     final double mutationChance = 0.40;
 
     public OutputData solve(){
@@ -28,7 +28,7 @@ public class Genetic {
                 Board child = reproduce(mother, father);
                 
                 if(rand.nextDouble() <= mutationChance)
-                    child = mutate(child);
+                    child = mutate(child.getBoard());
 
                 if(child.getFitness() == 0)
                     return new OutputData(true, child);
@@ -61,13 +61,13 @@ public class Genetic {
         return new Board(child);
     }
 
-    private Board mutate(Board child){
-        int n = child.getBoard().length;
+    private Board mutate(int[] child){
+        int n = child.length;
         Random rand = new Random();
         int index = rand.nextInt(n);
 
-        child.getBoard()[index] = rand.nextInt(n);
+        child[index] = rand.nextInt(n);
 
-        return child;
+        return new Board(child);
     }
 }

@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class Main{
     public static void main(String[] args) {
         OutputData output;
@@ -11,6 +13,7 @@ public class Main{
             output = steep.solve(b);
             
             output.getBoard().boardToString();
+            System.out.println(output.getBoard().getFitness());
 
             System.out.println("------------------------------");
 
@@ -24,6 +27,9 @@ public class Main{
         for(int i = 0; i < iterations; i++){
             output = gen.solve();
             output.getBoard().boardToString();
+
+            System.out.println(Arrays.toString(output.getBoard().getBoard()));
+            System.out.printf("Fitness: %d%n", output.getBoard().getFitness());
 
             System.out.println("------------------------------");
 
