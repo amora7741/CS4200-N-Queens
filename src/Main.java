@@ -1,3 +1,5 @@
+package src;
+
 import java.util.Arrays;
 
 public class Main{
@@ -19,7 +21,7 @@ public class Main{
             duration1 += end;
             
             output.getBoard().boardToString(); //print resulting board to terminal
-            System.out.printf("Fitness: %d%n", output.getBoard().getFitness()); //print amount of attacking pairs of queens
+            System.out.printf("Pairs of Attacking Queens: %d%n", output.getBoard().getFitness()); //print amount of attacking pairs of queens
             System.out.printf("Search cost: %d%n", output.getCost()); //print search cost of the resulting board
             avgcost1 += output.getCost();
 
@@ -44,7 +46,7 @@ public class Main{
             output.getBoard().boardToString();
 
             System.out.println(Arrays.toString(output.getBoard().getBoard()));
-            System.out.printf("Fitness: %d%n", output.getBoard().getFitness());
+            System.out.printf("Pairs of Attacking Queens: %d%n", output.getBoard().getFitness());
             System.out.printf("Search cost: %d%n", output.getCost());
             avgcost2 += output.getCost();
 

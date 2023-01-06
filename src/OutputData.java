@@ -1,3 +1,5 @@
+package src;
+
 public class OutputData { //class to store output data of the solved board
     boolean solved;
     Board board;
