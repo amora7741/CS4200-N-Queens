@@ -9,22 +9,22 @@ public class Board {
 
     public Board(){
         for(int i = 0; i < boardSize; i++){
-            board[i] = randInt.nextInt(boardSize); 
+            board[i] = randInt.nextInt(boardSize); //create a random board
         }
 
+        calcFitness(); //get the amount of attacking queens in the board
+    }
+
+    public Board(int[] board){ //create a board using the inputted array
+        this.board = board; 
         calcFitness();
     }
 
-    public Board(int[] board){
-        this.board = board;
-        calcFitness();
-    }
-
-    public int[] getBoard(){
+    public int[] getBoard(){ //return board array
         return board;
     }
     
-    public int getFitness(){
+    public int getFitness(){ //return amount of attacking queens
         return fitness;
     }
 

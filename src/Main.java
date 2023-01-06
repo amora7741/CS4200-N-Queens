@@ -11,21 +11,21 @@ public class Main{
         long duration1 = 0, duration2 = 0;
         int avgcost1 = 0, avgcost2 = 0;
         
-        for(int i = 0; i < iterations; i++){
-            Board b = new Board();
+        for(int i = 0; i < iterations; i++){ //do n iterations to get good results
+            Board b = new Board(); //create a new random board for each iteration
             start = System.currentTimeMillis();
-            output = steep.solve(b);
+            output = steep.solve(b); //attempt to solve board with steepest hill algo
             end = System.currentTimeMillis() - start;
             duration1 += end;
             
-            output.getBoard().boardToString();
-            System.out.printf("Fitness: %d%n", output.getBoard().getFitness());
-            System.out.printf("Search cost: %d%n", output.getCost());
+            output.getBoard().boardToString(); //print resulting board to terminal
+            System.out.printf("Fitness: %d%n", output.getBoard().getFitness()); //print amount of attacking pairs of queens
+            System.out.printf("Search cost: %d%n", output.getCost()); //print search cost of the resulting board
             avgcost1 += output.getCost();
 
             System.out.println("------------------------------");
 
-            if(output.solved)
+            if(output.solved) //check if board was solved, adding to total count
                 count++;
         }
 
@@ -34,11 +34,11 @@ public class Main{
         duration1 /= iterations;
         avgcost1 /= iterations;
         String output1 = String.format("Percentage of Boards Solved by Steepest-Hill Search: %.0f / %.0f = %.2f%% %n", count, iterations, percent1 * 100);
-        count = 0;
+        count = 0; //reset solved board count for genetic algorithm
 
         for(int i = 0; i < iterations; i++){
             start = System.currentTimeMillis();
-            output = gen.solve();
+            output = gen.solve(); //solve boards using the genetic algorithm
             end = System.currentTimeMillis() - start;
             duration2 += end;
             output.getBoard().boardToString();
@@ -54,7 +54,7 @@ public class Main{
                 count++;
         }
 
-        System.out.println("----GENETIC ALGORITHM DONE----\n-----------RESULTS------------");
+        System.out.println("----GENETIC ALGORITHM DONE----\n-----------RESULTS------------"); //print results to user
         percent2 = count / iterations;
         duration2 /= iterations;
         avgcost2 /= iterations;

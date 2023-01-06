@@ -1,4 +1,4 @@
-public class OutputData {
+public class OutputData { //class to store output data of the solved board
     boolean solved;
     Board board;
     int searchCost;
@@ -9,11 +9,11 @@ public class OutputData {
         this.searchCost = searchCost;
     }
 
-    public Board getBoard(){
+    public Board getBoard(){ //return solved board
         return board;
     }
 
-    public int getCost(){
+    public int getCost(){ //return search cost of the solved board
         return searchCost;
     }
 }
